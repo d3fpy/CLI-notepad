@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ## Run
 
 ```
-python notepad.py
+python main.py
 ```
 
 ## Commands
