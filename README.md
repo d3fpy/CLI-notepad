@@ -13,7 +13,7 @@ A tiny console notepad in Python. Type lines, and they are appended to a text fi
 ## Install
 
 ```
-pip install colorama
+pip install requirements.txt
 ```
 
 ## Run
