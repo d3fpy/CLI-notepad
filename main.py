@@ -43,7 +43,7 @@ try:
                 if confirm.lower() == 'y':
                     file.seek(0)
                     file.truncate(0)
-                    print("[file wiped clean]")
+                    print("[file has been wiped]")
 
             else:
                 file.seek(0,2)
