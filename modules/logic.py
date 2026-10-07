@@ -13,6 +13,7 @@ def main():
 
     print(f'File name: {filename}')
     print('Commands: :q - quit, :show - show file, :d - deleting the last line')
+    print("--------------------------------------------------------------------")
     print(':stats - shows stats about text in file, :clear - wipes all text in file')
 
     try:
