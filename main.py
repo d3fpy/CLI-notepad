@@ -9,7 +9,7 @@ filename = input("Enter file name (default notes.txt): ").strip() or "notes.txt"
 print(f'File name: {filename}')
 print('Commands: :q - quit, :show - show file')
 try:
-    with open(filename, "a+", encoding="utf-8") as file:
+    with open(filename, "r+", encoding="utf-8") as file:
         while True:
             line = input(color)
             if line == ':q':
