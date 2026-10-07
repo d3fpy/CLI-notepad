@@ -1,6 +1,4 @@
 # CLI-notepad
-
-
 A tiny console notepad in Python. Type lines, and they are appended to a text file.
 
 ## Features
@@ -35,4 +33,4 @@ python main.py
 
 ## License
 
-[GNU](https://github.com/d3fpy/CLI-notepad/blob/main/LICENSE)
+[![Licence](https://img.shields.io/badge/License-GNU-brightgreen?style=for-the-badge)](./LICENSE)
