@@ -1,5 +1,5 @@
 import colorama
-from logic import main
+from modules.logic import main
 
 colorama.just_fix_windows_console()
 
