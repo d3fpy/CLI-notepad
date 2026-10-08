@@ -28,6 +28,8 @@ python main.py
 | `:q`    | Save and quit |
 | `:stats`    |  shows stats about text in file |
 | `:clear`    |  wipes all text in file |
+| `:find`    |  find any text in file |
+
 
 `Ctrl+C` also exits safely.
 
