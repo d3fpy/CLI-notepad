@@ -14,11 +14,12 @@ def main():
         f"pick your color {Fore.RED}Red(1){Style.RESET_ALL} {Fore.GREEN}Green(2){Style.RESET_ALL} "
         f"{Fore.CYAN}Blue(3):{Style.RESET_ALL} {Fore.MAGENTA} Purple(4) {Style.RESET_ALL} "
     )
+    
     color = {"1": Fore.RED, "2": Fore.GREEN, "3": Fore.CYAN, '4': Fore.MAGENTA}.get(
         choice, Style.RESET_ALL
     )
+    
     file_inner = f"[{filename}]".center(19)
-
     colored_file = file_inner.replace(f"[{filename}]", f"{Fore.YELLOW}[{filename}]{Style.RESET_ALL}")
 
     print("         ┌───────────────────┐")
@@ -117,6 +118,7 @@ def main():
                         if not found:
                             print(f"{Style.RESET_ALL}[no matches found]")
                         file.seek(0, 2)
+                        
                     case "":
                         continue
 
@@ -124,6 +126,7 @@ def main():
                         file.seek(0, 2)
                         file.write(line + "\n")
                         file.flush()
+                        
     except (KeyboardInterrupt, EOFError):
         print(f"{Style.RESET_ALL}\nExiting... Saved!")
     finally:
