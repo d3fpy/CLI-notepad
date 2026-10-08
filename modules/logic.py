@@ -11,17 +11,18 @@ def main():
 
     choice = input(
         f"pick your color {Fore.RED}Red(1){Style.RESET_ALL} {Fore.GREEN}Green(2){Style.RESET_ALL} "
-        f"{Fore.CYAN}Blue(3):{Style.RESET_ALL} "
+        f"{Fore.CYAN}Blue(3):{Style.RESET_ALL} {Fore.MAGENTA} Purple(4) {Style.RESET_ALL} "
     )
-    color = {"1": Fore.RED, "2": Fore.GREEN, "3": Fore.CYAN}.get(
+    color = {"1": Fore.RED, "2": Fore.GREEN, "3": Fore.CYAN, '4': Fore.MAGENTA}.get(
         choice, Style.RESET_ALL
     )
-
     file_inner = f"[{filename}]".center(19)
+    
+    colored_file = file_inner.replace(f"[{filename}]", f"{Fore.YELLOW}[{filename}]{Style.RESET_ALL}")
 
     print("         ┌───────────────────┐")
     print("         │    -- FILE --     │")
-    print(f"         │{file_inner}│")
+    print(f"         │{colored_file}│")  
     print("         └─────────┬─────────┘")
     print("                   |")
     print("┌───────────────────────────────────────┐")
@@ -37,7 +38,6 @@ def main():
     print("█  :clear  - wipe all text in file      █")
     print("█  :find   - find any text in file      █")
     print("└───────────────────────────────────────┘")
-
     try:
         with open(filename, "a+", encoding="utf-8") as file:
             while True:
@@ -117,7 +117,6 @@ def main():
         print(Style.RESET_ALL, end="")
 
     return filename
-
 
 if __name__ == "__main__":
     main()
