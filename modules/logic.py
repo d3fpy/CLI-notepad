@@ -2,6 +2,7 @@ import os
 from colorama import Fore, Style
 
 def main():
+
     filename = (
         input("Enter file name (default notes.txt): ").strip() or "notes.txt"
     )
@@ -17,12 +18,12 @@ def main():
         choice, Style.RESET_ALL
     )
     file_inner = f"[{filename}]".center(19)
-    
+
     colored_file = file_inner.replace(f"[{filename}]", f"{Fore.YELLOW}[{filename}]{Style.RESET_ALL}")
 
     print("         ┌───────────────────┐")
     print("         │    -- FILE --     │")
-    print(f"         │{colored_file}│")  
+    print(f"         │{colored_file}│")
     print("         └─────────┬─────────┘")
     print("                   |")
     print("┌───────────────────────────────────────┐")
@@ -48,8 +49,18 @@ def main():
                         break
 
                     case ":show":
+                        file.flush()
                         file.seek(0)
+                        content = file.read()
                         print(Style.RESET_ALL + file.read())
+                        file.seek(0, 2)
+
+                        if not content:
+                            print('[file is empty]')
+
+                        else:
+                            print(Style.RESET_ALL + content, end="")
+
                         file.seek(0, 2)
 
                     case ":d":
@@ -79,6 +90,8 @@ def main():
                             f"{Style.RESET_ALL}lines: {lines_count} | words: {words_count} | chars: {len(text)}"
                         )
                         file.seek(0, 2)
+                        if not text:
+                            print(f"{Style.RESET_ALL}[file is empty]")
 
                     case ":clear":
                         confirm = input(
