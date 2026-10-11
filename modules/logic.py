@@ -11,35 +11,35 @@ def main():
         open(filename, "a").close()
 
     choice = input(
-        f"pick your color {Fore.RED}Red(1){Style.RESET_ALL} {Fore.GREEN}Green(2){Style.RESET_ALL} "
+        f"pick your color: {Fore.RED}Red(1){Style.RESET_ALL} {Fore.GREEN}Green(2){Style.RESET_ALL} "
         f"{Fore.CYAN}Blue(3):{Style.RESET_ALL} {Fore.MAGENTA} Purple(4) {Style.RESET_ALL} "
     )
-    
     color = {"1": Fore.RED, "2": Fore.GREEN, "3": Fore.CYAN, '4': Fore.MAGENTA}.get(
         choice, Style.RESET_ALL
     )
-    
-    file_inner = f"[{filename}]".center(19)
+
+    print('')
+
+    file_inner = f"[{filename}]"
+
     colored_file = file_inner.replace(f"[{filename}]", f"{Fore.YELLOW}[{filename}]{Style.RESET_ALL}")
 
-    print("         ┌───────────────────┐")
-    print("         │    -- FILE --     │")
-    print(f"         │{colored_file}│")
-    print("         └─────────┬─────────┘")
-    print("                   |")
-    print("┌───────────────────────────────────────┐")
-    print("█             -- SYSTEM --              █")
-    print("█  :q      - quit                       █")
-    print("█  :show   - show file contents         █")
-    print("└──────────────────┬────────────────────┘")
-    print("                   |")
-    print("┌──────────────────┴────────────────────┐")
-    print("█              -- TEXT --               █")
-    print("█  :d      - delete the last line       █")
-    print("█  :stats  - show stats about text      █")
-    print("█  :clear  - wipe all text in file      █")
-    print("█  :find   - find any text in file      █")
-    print("└───────────────────────────────────────┘")
+    commands = {
+        ":q": "quit",
+        ":show": "show file contents",
+        ":d": "delete the last line",
+        ":stats": "show stats about text",
+        ":clear": "wipe all text in file",
+        ":find": "find any text in file"
+    }
+    separator = '---------------------------------'
+
+    print(f'file: {colored_file}')
+    print(separator)
+
+    for key, value in commands.items():
+        print(f" {key} - {value}")
+    print(f'{separator}\n')
     try:
         with open(filename, "a+", encoding="utf-8") as file:
             while True:
@@ -118,7 +118,6 @@ def main():
                         if not found:
                             print(f"{Style.RESET_ALL}[no matches found]")
                         file.seek(0, 2)
-                        
                     case "":
                         continue
 
@@ -126,13 +125,10 @@ def main():
                         file.seek(0, 2)
                         file.write(line + "\n")
                         file.flush()
-                        
     except (KeyboardInterrupt, EOFError):
         print(f"{Style.RESET_ALL}\nExiting... Saved!")
     finally:
         print(Style.RESET_ALL, end="")
-
-    return filename
 
 if __name__ == "__main__":
     main()
